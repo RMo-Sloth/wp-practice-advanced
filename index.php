@@ -9,7 +9,7 @@
 <body <?php body_class(); ?> >
   <header>
     <div class="container">
-      <h1><a href="index.html"><?php bloginfo('name'); ?></a></h1>
+      <h1><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
       <small><?php bloginfo('description'); ?></small>
 
       <div class="h_right">
@@ -32,26 +32,20 @@
 
   <div class="container content">
     <div class="main block">
-      <article class='post'>
-        <h2>Blog Post</h2>
-        <p class="meta">Posted 06:00 on September 16 by admin.</p>
-        <p>Elit exercitation mollit adipisicing velit. Sunt commodo Lorem sint ea voluptate anim Lorem excepteur cillum velit non velit nisi. Enim magna laboris veniam aliquip commodo voluptate anim magna Lorem fugiat. Dolore minim ad qui nulla sint dolor id laboris aliquip. Voluptate magna adipisicing commodo et. Fugiat irure id labore minim reprehenderit aliqua quis minim sunt.</p>
-        <a href="#" class="button">Read More</a>
-      </article>
-
-      <article class='post'>
-        <h2>Blog Post</h2>
-        <p class="meta">Posted 06:00 on September 16 by admin.</p>
-        <p>Elit exercitation mollit adipisicing velit. Sunt commodo Lorem sint ea voluptate anim Lorem excepteur cillum velit non velit nisi. Enim magna laboris veniam aliquip commodo voluptate anim magna Lorem fugiat. Dolore minim ad qui nulla sint dolor id laboris aliquip. Voluptate magna adipisicing commodo et. Fugiat irure id labore minim reprehenderit aliqua quis minim sunt.</p>
-        <a href="#" class="button">Read More</a>
-      </article>
-
-      <article class='post'>
-        <h2>Blog Post</h2>
-        <p class="meta">Posted 06:00 on September 16 by admin.</p>
-        <p>Elit exercitation mollit adipisicing velit. Sunt commodo Lorem sint ea voluptate anim Lorem excepteur cillum velit non velit nisi. Enim magna laboris veniam aliquip commodo voluptate anim magna Lorem fugiat. Dolore minim ad qui nulla sint dolor id laboris aliquip. Voluptate magna adipisicing commodo et. Fugiat irure id labore minim reprehenderit aliqua quis minim sunt.</p>
-        <a href="#" class="button">Read More</a>
-      </article>
+      <?php 
+      if( have_posts() ):
+        while( have_posts() ): the_post(); ?>
+          <article class='post'>
+            <h2><?php the_title(); ?></h2>
+            <p class="meta">Posted 06:00 on September 16 by admin.</p>
+            <?php the_content(); ?>
+            <a href="#" class="button">Read More</a>
+          </article>
+        <?php endwhile;
+      else:
+        echo wpautop('Sorry no posts found.');
+      endif;
+      ?>
     </div>
 
     <div class="side">
