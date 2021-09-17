@@ -37,7 +37,7 @@
         while( have_posts() ): the_post(); ?>
           <article class='post'>
             <h2><?php the_title(); ?></h2>
-            <p class="meta">Posted 06:00 on September 16 by admin.</p>
+            <p class="meta"><?php the_time("F j, Y, g:i a"); ?> by <a href="<?php echo get_author_posts_url( get_the_author_meta('ID') ); ?>"><?php the_author(); ?></a>.</p>
             <?php the_content(); ?>
             <a href="#" class="button">Read More</a>
           </article>

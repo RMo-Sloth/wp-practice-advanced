@@ -136,6 +136,10 @@ article.post .meta {
   background: #009acd;
 }
 
+article.post .meta a {
+  color: white;
+}
+
 .button{
     background:#009acd;
     color:#fff;
