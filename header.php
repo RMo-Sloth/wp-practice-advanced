@@ -13,7 +13,7 @@
       <small><?php bloginfo('description'); ?></small>
 
       <div class="h_right">
-        <form method='GET' action="<?php esc_url(home_url('/')); ?>">
+        <form method='get' action="<?php echo esc_url(home_url('/')); ?>">
           <input type="text" name="s" placeholder="Search">
         </form>
       
