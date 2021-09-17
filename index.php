@@ -55,6 +55,14 @@
                 echo trim($output, $separator);
               }
             ?>.</p>
+            <?php 
+              if( has_post_thumbnail() ) {
+                printf( 
+                  '<div class="post-thumbnail">%s</div>',
+                  get_the_post_thumbnail()
+                );
+              }
+            ?>
             <?php the_excerpt(); ?>
             <a href="<?php the_permalink(); ?>" class="button">Read More</a>
           </article>
