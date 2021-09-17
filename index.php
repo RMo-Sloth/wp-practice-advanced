@@ -9,7 +9,8 @@
 <body>
   <header>
     <div class="container">
-      <h1>Advanced WP Theme</h1>
+      <h1><a href="index.html">Advanced Wordpress Theme</a></h1>
+      <small>Another Wordpress Theme</small>
 
       <div class="h_right">
         <form action="">
@@ -52,12 +53,23 @@
         <a href="#" class="button">Read More</a>
       </article>
     </div>
+
+    <div class="side">
+      <div class="block">
+      <h3>Sidebar Head</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+      Nam vel diam hendrerit erat fermentum aliquet sed eget arcu.</p>
+      <a class="button">More</a>
+      </div>
+    </div>
+  
   </div>
+
 
   <footer class="main-footer">
     <div class="container">
       <div class="f_left">
-        <p>&amp;copy; 2021 - Advanced WP Theme</p>
+        <p>&copy; 2021 - Advanced WP Theme</p>
       </div>
       <div class="f_right">
       <ul>
