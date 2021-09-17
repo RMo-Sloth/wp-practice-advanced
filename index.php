@@ -1,20 +1,20 @@
-<html lang="en">
+<html <?php language_attributes(); ?>>
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="<?php bloginfo('charset'); ?>">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>">
-  <title>Advanced WP Theme</title>
+  <title><?php bloginfo('title'); ?></title>
+  <?php wp_head(); ?>
 </head>
-<body>
+<body <?php body_class(); ?> >
   <header>
     <div class="container">
-      <h1><a href="index.html">Advanced Wordpress Theme</a></h1>
-      <small>Another Wordpress Theme</small>
+      <h1><a href="index.html"><?php bloginfo('name'); ?></a></h1>
+      <small><?php bloginfo('description'); ?></small>
 
       <div class="h_right">
-        <form action="">
-          <input type="text" placeholder="Search">
+        <form method='GET' action="<?php esc_url(home_url('/')); ?>">
+          <input type="text" name="s" placeholder="Search">
         </form>
       
       </div>
@@ -22,11 +22,11 @@
   </header>
   <nav class="nav main-nav">
     <div class="container">
-      <ul>
-        <li><a href="./about.html">About</a></li>
-        <li><a href="./index.html">Home</a></li>
-        <li><a href="#">Services</a></li>
-      </ul>
+      <?php 
+        wp_nav_menu([
+          'theme_location' => 'primary'
+        ]); 
+      ?>
     </div>
   </nav>
 
@@ -72,14 +72,15 @@
         <p>&copy; 2021 - Advanced WP Theme</p>
       </div>
       <div class="f_right">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="#">Services</a></li>
-      </ul>
+      <?php 
+        wp_nav_menu([
+          'theme_location' => 'footer'
+        ]); 
+      ?>
       </div>
     </div>
   </footer>
+  <?php wp_footer(); ?>
 </body>
 </html>
 <?php
