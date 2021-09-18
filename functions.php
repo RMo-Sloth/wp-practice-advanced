@@ -7,6 +7,8 @@ function theme_support() {
   ] );
 
   add_theme_support( 'post-thumbnails' );
+
+  add_theme_support( 'post-formats', ['aside', 'gallery', 'link'] );
 }
 add_action( 'after_setup_theme','theme_support' );
 

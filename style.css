@@ -145,6 +145,16 @@ article.post .post-thumbnail img {
   height: auto;
 }
 
+article.post-aside small {
+  font-weight: bold;
+}
+
+article.post-aside .well {
+  background:#e0eefc;
+  padding:10px;
+}
+
+
 .button{
     background:#009acd;
     color:#fff;
