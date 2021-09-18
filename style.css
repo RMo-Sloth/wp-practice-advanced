@@ -154,6 +154,11 @@ article.post-aside .well {
   padding:10px;
 }
 
+article.post-link  .well{
+    background: #f4f4f4;
+    padding:10px;
+}
+
 
 .button{
     background:#009acd;
