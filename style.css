@@ -214,3 +214,10 @@ footer.main-footer a {
     margin:0;
     padding:0;
 }
+
+.phone{
+    background:#f4f4f4;
+    border: 1px solid #ccc;
+    padding:8px;
+    font-weight: bold;
+}
