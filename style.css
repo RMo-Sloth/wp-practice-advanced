@@ -221,3 +221,35 @@ footer.main-footer a {
     padding:8px;
     font-weight: bold;
 }
+
+.sub-nav{
+  margin-top:10px;
+  float:right;
+  width:300px;
+}
+
+.sub-nav ul{
+  float:right;
+}
+
+.sub-nav .parent-link{
+  font-weight: bold;
+  color:#000;
+  float:left;
+  margin-right:20px;
+  padding-right:20px;
+  border-right:1px solid #009acd;
+}
+
+.sub-nav .parent-link a{
+  font-weight: bold;
+  color:#000;
+}
+
+.sub-nav .current_page_item{
+  font-weight: bold;
+}
+
+.clr{
+    clear:both;
+}
