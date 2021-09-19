@@ -288,3 +288,141 @@ footer.main-footer a {
   padding:5px;
   color:#fff;
 }
+
+.comment-body{
+  border:#ccc 1px solid;
+  margin-bottom:10px;
+  padding:20px 10px;
+}
+
+.comment-meta{
+  background:#333;
+  color:#fff;
+  padding:10px;
+  overflow:auto;
+}
+
+.comment-meta img{
+  float:left;
+  margin-right:10px;
+}
+
+.comment-meta time{
+  margin-left:12px;
+}
+
+
+Comment Functionality
+In this section, we'll add the custom comment functionality.
+
+Let's open up single.php and go right under endif. We'll say <?php comments_template(); ?>:
+
+   <?php endif; ?>
+
+   <?php comments_template(); ?>
+</div>
+Let's save this and reload. We have our comment section now:
+
+
+Let's say Great Post, click on Post Comment, and it works!
+
+Now this will work as far as functionality goes, but it doesn't look too good, so I want to show you how we can customize this.
+
+We'll create a new page, or a new file, and we'll call this comments.php. If we go back now and reload you'll see there's nothing here, it's reading from this file; if we say Test and reload, we get Test:
+
+
+So it's up to us to customize how we want this to work.
+
+There's actually some helpful code in the documentation at https://codex.wordpress.org/Function_Reference/wp_list_comments for our wp_list_comments, and this is what we want.
+In the comments.php file enter the following code:
+
+<?php $args = array(
+        'walker'            => null,
+        'max_depth'         => '',
+        'style'             => 'ul',
+        'callback'          => null,
+        'end-callback'      => null,
+        'type'              => 'all',
+        'reply_text'        => 'Reply',
+        'page'              => '',
+        'per_page'          => '',
+        'avatar_size'       => 32,
+        'reverse_top_level' => null,
+        'reverse_children'  => '',
+        'format'            => 'html5', // or 'xhtml' if no 'HTML5' theme 
+                                        // support
+        'short_ping'        => false,   // @since 3.6
+        'echo'              => true     // boolean, default is true
+); ?>
+
+<?php wp_list_comments($args, $comments); ?>
+Let's first of all put an <h2> tag and say Comments.
+
+We can create an arguments array. I'll grab that. Obviously, we don't need most of this stuff, but it's not going to hurt us to keep it in there; you'll see a lot of this is set to null, just in case you wanted to change anything later on. I'll change avatar_size to 80, make it a little bigger. The rest we can leave. These arguments will now get plugged into the wp_list_comments() function. Next, we'll pass in args and comments. So, that takes care of the comments. Now we need the form so that can also take some arguments.
+
+From the bottom I'll grab this code, paste that in; it just needs a php tag. We'll set another argument array, comments_args; actually let's call this form_args, and then change comments_args to form_args. Let's set the label of the submit button, what you want in the title_reply field, comment after, comment_notes_after, and then the comment_field itself; in this case, they give you a paragraph with the class of comment-form-comment as the label. I don't think we really want to change anything here. For the text area, we'll add in a couple of attributes; we'll set cols to 45 and rows to 8:
+
+<?php
+$form_args = array(
+        // change the title of send button 
+        'label_submit'=>'Send',
+        // change the title of the reply section
+        'title_reply'=>'Write a Reply or Comment',
+        // remove "Text or HTML to be displayed after the set of comment 
+        // fields"
+        'comment_notes_after' => '',
+        // redefine your own textarea (the comment body)
+        'comment_field' => '<p class="comment-form-comment">
+        <label for="comment">' . _x( 'Comment', 'noun' ) . '</label>
+        <br /><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true">
+        </textarea></p>',
+); ?>
+
+comment_form($form_args);
+We'll save it and reload. This is good:
+
+
+The rest of it we'll do in CSS.
+
+We'll now go to style.css. Let's go down to the bottom and paste this code in; this is going to be comment-body, we'll give it a border, margin, and padding. We also want the meta which is this area here, the avatar, and then the date and all that stuff; let's paste that in:
+
+.comment-body{
+  border:#ccc 1px solid;
+  margin-bottom:10px;
+  padding:20px 10px;
+}
+We'll add a dark background, some padding, and for the image, I'll float it to the left, add the time and some margin to that. Next, we'll format reply-link to make it look like a button, and then the form itself:
+
+.comment-meta{
+  background:#333;
+  color:#fff;
+  padding:10px;
+  overflow:auto;
+}
+
+.comment-meta img{
+  float:left;
+  margin-right:10px;
+}
+
+.comment-meta time{
+  margin-left:12px;
+}
+
+.comment-reply-link{
+   background:#009acd;
+   color:#fff;
+   display:inline-block;
+   padding:10px 15px;
+}
+
+.comment-form input,.comment-form textarea{
+   width:100%;
+   padding:3px;
+   border:#ccc 1px solid;
+   margin-bottom:20px;
+}
+
+.comment-form input{
+   height:30px;
+}
