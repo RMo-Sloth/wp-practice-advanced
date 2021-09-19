@@ -12,12 +12,11 @@
     </div>
 
     <div class="side">
-      <div class="block">
-      <h3>Sidebar Head</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-      Nam vel diam hendrerit erat fermentum aliquet sed eget arcu.</p>
-      <a class="button">More</a>
-      </div>
+      <?php 
+        if( is_active_sidebar( 'sidebar' )):
+          dynamic_sidebar( 'sidebar' );
+        endif;
+      ?>
     </div>
   
   </div>
