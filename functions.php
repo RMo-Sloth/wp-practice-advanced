@@ -19,29 +19,36 @@ function theme_register_sidebars() {
     register_sidebar( [
       'name' => __('Sidebar'),
       'id' => 'sidebar',
-      'before_widget' => '<div class="block side-widget">',
-      'after_widget' => '</div>',
+      'before_sidebar' => '<div class="block side-widget">',
+      'after_sidebar' => '</div>',
     ] );
 
     register_sidebar( [
       'name' => __('Box 1'),
       'id' => 'box_1',
-      'before_widget' => '<div class="block side-widget">',
-      'after_widget' => '</div>',
+      'before_sidebar' => '<div class="block side-widget box">',
+      'after_sidebar' => '</div>',
     ] );
 
     register_sidebar( [
       'name' => __('Box 2'),
       'id' => 'box_2',
-      'before_widget' => '<div class="block side-widget">',
-      'after_widget' => '</div>',
+      'before_sidebar' => '<div class="block side-widget box">',
+      'after_sidebar' => '</div>',
     ] );
 
     register_sidebar( [
       'name' => __('Box 3'),
       'id' => 'box_3',
-      'before_widget' => '<div class="block side-widget">',
-      'after_widget' => '</div>',
+      'before_sidebar' => '<div class="block side-widget box">',
+      'after_sidebar' => '</div>',
+    ] );
+
+      register_sidebar( [
+      'name' => __('Showcase'),
+      'id' => 'showcase',
+      'before_sidebar' => '<div class="block side-widget">',
+      'after_sidebar' => '</div>',
     ] );
 }
 add_action('widgets_init', 'theme_register_sidebars');

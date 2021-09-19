@@ -27,6 +27,25 @@
         echo wpautop('Sorry no posts found.');
       endif; ?>
     </div>
+
+    <?php 
+    if( is_active_sidebar( 'box_1' ) ):
+      dynamic_sidebar( 'box_1' );
+    endif;
+
+    if( is_active_sidebar( 'box_2' ) ):
+      dynamic_sidebar( 'box_2' );
+    endif;
+
+    if( is_active_sidebar( 'box_3' ) ):
+      dynamic_sidebar( 'box_3' );
+    endif;
+
+    if( is_active_sidebar( 'showcase' ) ):
+      print('<div class="clr"></div>');
+      dynamic_sidebar( 'showcase' );
+    endif;
+    ?>
   
   </div>
 
